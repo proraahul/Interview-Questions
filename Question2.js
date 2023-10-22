@@ -4,7 +4,7 @@ Example:
     score = [12,24,10,24];
 Scores are in the same order as the games played. She tabulates her results as follows:
 
-                                     Count
+Count:
     Game  Score  Minimum  Maximum   Min Max
      0      12     12       12       0   0
      1      24     12       24       0   1
@@ -23,7 +23,8 @@ int[2]: An array with the numbers of times she broke her records. Index 0 is for
 
 Input Format:
 The first line contains an integer , the number of games.
-The second line contains n space-separated integers describing the respective values of score0, score1,...score(n-1).    */
+The second line contains n space-separated integers describing the respective values of score0, score1,...score(n-1).    
+*/
 
 function breakingRecords(scores) {
   let minScore = scores[0];
@@ -47,4 +48,4 @@ function breakingRecords(scores) {
 // Example usage:
 const scores = [10, 5, 20, 20, 4, 5, 2, 25, 1];
 const result = breakingRecords(scores);
-console.log(result); // Output: [1, 1]
+console.log(result);
