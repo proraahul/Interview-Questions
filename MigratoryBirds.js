@@ -1,33 +1,34 @@
 function migratoryBirds(arr) {
-    const birdCounts = {}; // Object to store the count of each bird type
-  
-    // Loop through the bird sightings and count each bird type
-    for (const birdType of arr) {
-      if (birdCounts[birdType]) {
-        birdCounts[birdType]++;
-      } else {
-        birdCounts[birdType] = 1;
-      }
-    }
+  let seenBirds = {};
 
-    let maxCount = 0; // Maximum count of bird sightings
-    let mostFrequentBird = Number.POSITIVE_INFINITY; // Initialize with positive infinity
-  
-    // Find the most frequently sighted bird type
-    for (const birdType in birdCounts) {
-      if (birdCounts[birdType] > maxCount) {
-        maxCount = birdCounts[birdType];
-        mostFrequentBird = birdType;
-      } else if (birdCounts[birdType] === maxCount && birdType < mostFrequentBird) {
-        mostFrequentBird = birdType;
+  arr.forEach((bird) => {
+    if (seenBirds[bird]) {
+      seenBirds[bird]++;
+    } else {
+      seenBirds[bird] = 1;
+    }
+  });
+
+  let birdId = 0;
+  let total = 0;
+
+  for (let key in seenBirds) {
+    // is it seen more
+    if (seenBirds[key] > total) {
+      total = seenBirds[key];
+      birdId = parseInt(key);
+    } else if (seenBirds[key == total]) {
+      // is it same
+      // is the bird id less then the current birdId
+      if (parseInt(key) < birdId) {
+        birdId = parseInt(key);
       }
     }
-    return mostFrequentBird;
   }
+  return birdId;
+}
 
-  
-  //Example Usage:
-  const birdSightings = [1, 1, 2, 2, 3,2];
-  const mostFrequentBirdType = migratoryBirds(birdSightings);
-  console.log(mostFrequentBirdType);
-  
+//Example Usage:
+const birdSightings = [3, 1, 1, 2,3, 2, 3, 2,3];
+const mostFrequentBirdType = migratoryBirds(birdSightings);
+console.log(mostFrequentBirdType);
